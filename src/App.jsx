@@ -63,7 +63,7 @@ function App() {
 
         <a
           className="navButton"
-          href="https://calendly.com/builtfromzero/15-minute-introduction"
+          href="https://linktr.ee/Builtfromzero?"
           target="_blank"
           rel="noreferrer"
         >
@@ -221,6 +221,39 @@ function App() {
         </div>
       </section>
 
+<section className="contentSection foundersSection">
+  <div className="foundersGrid">
+    <article className="founderCard">
+      <div className="founderImageWrap">
+        <img
+          src="/images/coaches/Jonny.png"
+          alt="Jonny Carter"
+          className="founderImage"
+        />
+      </div>
+
+      <div className="founderDetails">
+        <h3>Jonny Carter</h3>
+        <p>Co-Founder &amp; Coach</p>
+      </div>
+    </article>
+
+    <article className="founderCard">
+      <div className="founderImageWrap">
+        <img
+          src="/images/coaches/Ben.png"
+          alt="Ben Neilson"
+          className="founderImage"
+        />
+      </div>
+
+      <div className="founderDetails">
+        <h3>Ben Neilson</h3>
+        <p>Co-Founder &amp; Coach</p>
+      </div>
+    </article>
+  </div>
+</section>
       <section className="contentSection">
         <div className="sectionHeader">
           <p className="eyebrow">Who we are</p>
@@ -369,7 +402,7 @@ function App() {
 
       <section className="finalCta" id="coaching">
         <p className="eyebrow">
-          Ready for individual support?
+          Ready for 1-to-1 support?
         </p>
 
         <h2>
@@ -378,13 +411,13 @@ function App() {
 
         <p>
           Already know you need structure, accountability and a plan built
-          around you? Book a short introduction call and tell us what you
+          around you? Apply for coaching and tell us what you
           are working towards.
         </p>
 
         <a
           className="primaryButton"
-          href="https://calendly.com/builtfromzero/15-minute-introduction"
+          href="https://linktr.ee/Builtfromzero?"
           target="_blank"
           rel="noreferrer"
         >
