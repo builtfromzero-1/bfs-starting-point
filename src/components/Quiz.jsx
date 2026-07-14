@@ -46,7 +46,8 @@ const questions = [
   },
   {
     category: 'Consistency',
-    question: 'How often does your routine still work when the week is not perfect?',
+    question:
+      'How often does your routine still work when the week is not perfect?',
     help: 'Think about work pressure, weekends, tiredness and social plans.',
     answers: [
       { text: 'Almost never', score: 1 },
@@ -68,7 +69,8 @@ const questions = [
   },
   {
     category: 'Lifestyle',
-    question: 'How much does your job or routine make looking after yourself harder?',
+    question:
+      'How much does your job or routine make looking after yourself harder?',
     help: 'Think missed sessions, rushed food and constantly putting yourself last.',
     answers: [
       { text: 'It controls almost everything', score: 1 },
@@ -79,7 +81,8 @@ const questions = [
   },
   {
     category: 'Recovery',
-    question: 'How often do low energy, poor sleep or stress make consistency harder?',
+    question:
+      'How often do low energy, poor sleep or stress make consistency harder?',
     help: 'Choose what reflects most weeks, not one difficult day.',
     answers: [
       { text: 'Most days', score: 1 },
@@ -90,7 +93,8 @@ const questions = [
   },
   {
     category: 'Confidence',
-    question: 'How confident are you that your current approach will work over the next 12 weeks?',
+    question:
+      'How confident are you that your current approach will work over the next 12 weeks?',
     help: 'This is about trust in your process, not hope.',
     answers: [
       { text: 'Not confident at all', score: 1 },
@@ -174,7 +178,6 @@ function Quiz({ onClose }) {
   });
 
   const question = questions[currentQuestion];
-  const progress = ((currentQuestion + 1) / questions.length) * 100;
 
   function selectAnswer(answer) {
     if (currentQuestion === 0 && answer.profile) {
@@ -243,6 +246,7 @@ function Quiz({ onClose }) {
     setProfile('direction');
     setShowLeadCapture(false);
     setShowResult(false);
+
     setLead({
       firstName: '',
       email: '',
@@ -268,28 +272,39 @@ function Quiz({ onClose }) {
     return (
       <section className="quizScreen">
         <div className="quizCard leadCaptureCard">
-          <div className="quizTop lightQuizTop">
-            <span>Your Starting Point is ready</span>
+          <div className="quizHeaderRow">
+            <button
+              type="button"
+              className="quizBackTop"
+              onClick={() => setShowLeadCapture(false)}
+            >
+              ← Back
+            </button>
 
-            <button className="closeButton lightCloseButton" onClick={onClose}>
+            <button
+              type="button"
+              className="lightCloseButton"
+              onClick={onClose}
+              aria-label="Close assessment"
+            >
               ×
             </button>
           </div>
 
-          <div className="progressTrack lightProgressTrack">
-            <div className="progressFill" style={{ width: '100%' }} />
+          <div className="assessmentIntro">
+            <span className="assessmentPill">
+              Your report is ready
+            </span>
+
+            <h1>Unlock your Starting Point.</h1>
+
+            <p>
+              Enter your details to reveal your score, biggest opportunity
+              and personalised next steps.
+            </p>
           </div>
 
           <div className="leadCaptureContent">
-            <p className="leadEyebrow">Almost there</p>
-
-            <h2>Unlock your personalised result.</h2>
-
-            <p className="leadIntro">
-              Enter your details below to see your Starting Point score,
-              biggest opportunity and three recommended actions.
-            </p>
-
             <form className="leadForm" onSubmit={submitLead}>
               <label>
                 First name
@@ -342,7 +357,7 @@ function Quiz({ onClose }) {
               </label>
 
               <button className="unlockButton" type="submit">
-                Unlock my Starting Point report →
+                Unlock my report →
               </button>
             </form>
           </div>
@@ -360,7 +375,11 @@ function Quiz({ onClose }) {
               {lead.firstName}, here is your Built From Zero Starting Point
             </span>
 
-            <button className="closeButton" onClick={onClose}>
+            <button
+              className="closeButton"
+              onClick={onClose}
+              aria-label="Close result"
+            >
               ×
             </button>
           </div>
@@ -404,7 +423,7 @@ function Quiz({ onClose }) {
                 target="_blank"
                 rel="noreferrer"
               >
-                Book a free 15 min consultation call →
+                Book a free 15 minute consultation →
               </a>
 
               <button className="restartButton" onClick={restartQuiz}>
@@ -419,52 +438,128 @@ function Quiz({ onClose }) {
 
   return (
     <section className="quizScreen">
-      <div className="quizCard lightQuizCard">
-        <div className="quizTop lightQuizTop">
-          <span>
-            Question {currentQuestion + 1} of {questions.length}
-          </span>
+      <div className="quizCard guidedQuizCard">
+        <div className="quizHeaderRow">
+          <button
+            type="button"
+            className="quizBackTop"
+            onClick={goBack}
+          >
+            ← Back
+          </button>
 
-          <button className="closeButton lightCloseButton" onClick={onClose}>
+          <button
+            type="button"
+            className="lightCloseButton"
+            onClick={onClose}
+            aria-label="Close assessment"
+          >
             ×
           </button>
         </div>
 
-        <div className="progressTrack lightProgressTrack">
-          <div
-            className="progressFill"
-            style={{ width: `${progress}%` }}
-          />
+        <div className="assessmentIntro">
+          <span className="assessmentPill">
+            2 minute assessment
+          </span>
+
+          <h1>Find Your Starting Point</h1>
+
+          <p>
+            Answer seven short questions. Each answer automatically moves
+            you to the next step.
+          </p>
         </div>
 
-        <div className="quizContent">
-          <p className="leadEyebrow">{question.category}</p>
+        <div className="numberProgress" aria-label="Assessment progress">
+          {questions.map((item, index) => {
+            const isComplete = index < currentQuestion;
+            const isCurrent = index === currentQuestion;
 
-          <h2 className="quizQuestion lightQuizQuestion">
+            return (
+              <div className="progressStepWrap" key={item.category}>
+                <div
+                  className={[
+                    'numberStep',
+                    isComplete ? 'numberStepComplete' : '',
+                    isCurrent ? 'numberStepCurrent' : '',
+                  ]
+                    .filter(Boolean)
+                    .join(' ')}
+                >
+                  {isComplete ? '✓' : index + 1}
+                </div>
+
+                {index < questions.length - 1 && (
+                  <div
+                    className={
+                      index < currentQuestion
+                        ? 'stepConnector stepConnectorComplete'
+                        : 'stepConnector'
+                    }
+                  />
+                )}
+              </div>
+            );
+          })}
+        </div>
+
+        <div
+          className="guidedQuestionContent"
+          key={currentQuestion}
+        >
+          <p className="guidedStepLabel">
+            Step {currentQuestion + 1} — {question.category}
+          </p>
+
+          <h2 className="guidedQuestion">
             {question.question}
           </h2>
 
-          <p className="quizHelp lightQuizHelp">
+          <p className="guidedHelp">
             {question.help}
           </p>
 
-          <div className="answerList">
-            {question.answers.map((answer) => (
+          <div className="guidedAnswerList">
+            {question.answers.map((answer, index) => (
               <button
                 type="button"
-                className="answerButton lightAnswerButton"
+                className="guidedAnswerButton"
                 key={answer.text}
                 onClick={() => selectAnswer(answer)}
               >
-                {answer.text}
-                <span>→</span>
+                <span className="answerLetter">
+                  {String.fromCharCode(65 + index)}
+                </span>
+
+                <span className="answerText">
+                  {answer.text}
+                </span>
+
+                <span className="answerArrow">→</span>
               </button>
             ))}
           </div>
+        </div>
 
-          <button className="backButton lightBackButton" onClick={goBack}>
-            ← Back
-          </button>
+        <div className="quizFooter">
+          <div className="completionDots">
+            {questions.map((item, index) => (
+              <span
+                key={item.category}
+                className={
+                  index <= currentQuestion
+                    ? 'completionDot completionDotActive'
+                    : 'completionDot'
+                }
+              />
+            ))}
+          </div>
+
+          <p>
+            Your answers are used to build your personalised Starting Point
+            report.
+          </p>
         </div>
       </div>
     </section>
