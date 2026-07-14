@@ -47,6 +47,7 @@ function App() {
   if (showQuiz) {
     return (
       <Quiz
+      embedded={true}
         onClose={closeAssessment}
         startingAnswer={startingAnswer}
       />
@@ -55,26 +56,16 @@ function App() {
 
   return (
     <main className="page">
-      <nav className="nav">
-        <div className="brand">
-          <div className="logo">BFZ</div>
-          <span>Built From Zero</span>
-        </div>
-
-        <a
-          className="navButton"
-          href="https://linktr.ee/Builtfromzero?"
-          target="_blank"
-          rel="noreferrer"
-        >
-          Apply for coaching
-        </a>
-      </nav>
 
       <section className="hero">
         <div className="heroContent">
+          <img
+  src="/images/brand/Logo.png"
+  alt="Built From Zero"
+  className="heroLogo"
+/>
           <p className="eyebrow">
-            The Built From Zero Starting Point
+            The Built From Zero Quiz 
           </p>
 
           <h1>
@@ -268,7 +259,7 @@ function App() {
             <h3>Built From Zero</h3>
 
             <p>
-              Built From Zero is a coaching company focused on helping
+              Built From Zero is coaching focused on helping
               people lose body fat, build muscle and improve their health
               and performance.
             </p>
@@ -366,7 +357,7 @@ function App() {
             <h3>Training</h3>
 
             <p>
-              A clear programme designed around your goal and ability.
+              A clear structure designed around your goal and ability.
             </p>
           </div>
 
@@ -424,6 +415,29 @@ function App() {
           Apply for coaching →
         </a>
       </section>
+      <section className="programLibraryCta">
+  <p className="eyebrow">
+    Not ready for 1-to-1 coaching?
+  </p>
+
+  <h2>
+    Access the Built From Zero programme library.
+  </h2>
+
+  <p>
+    Access our range training programmes built for strength, endurance and hybrid
+    performance, with clear progression and everything laid out for you.
+  </p>
+
+  <a
+    className="primaryButton"
+    href="https://builtfromzero.programs.app"
+    target="_blank"
+    rel="noreferrer"
+  >
+    Explore the programme library →
+  </a>
+</section>
     </main>
   );
 }

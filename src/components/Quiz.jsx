@@ -163,7 +163,7 @@ const results = {
   },
 };
 
-function Quiz({ onClose }) {
+function Quiz({ onClose, embedded = false }) {
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [selectedAnswers, setSelectedAnswers] = useState([]);
   const [profile, setProfile] = useState('direction');
@@ -270,7 +270,7 @@ function Quiz({ onClose }) {
 
   if (showLeadCapture) {
     return (
-      <section className="quizScreen">
+      <section className={embedded ? "embeddedQuiz" : "quizScreen"}>
         <div className="quizCard leadCaptureCard">
           <div className="quizHeaderRow">
             <button
@@ -368,7 +368,7 @@ function Quiz({ onClose }) {
 
   if (showResult) {
     return (
-      <section className="quizScreen">
+      <section className={embedded ? "embeddedQuiz" : "quizScreen"}>
         <div className="quizCard resultCard">
           <div className="quizTop">
             <span>
@@ -437,7 +437,7 @@ function Quiz({ onClose }) {
   }
 
   return (
-    <section className="quizScreen">
+    <section className={embedded ? "embeddedQuiz" : "quizScreen"}>
       <div className="quizCard guidedQuizCard">
         <div className="quizHeaderRow">
           <button
