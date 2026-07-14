@@ -163,7 +163,15 @@ function Quiz({ onClose }) {
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [selectedAnswers, setSelectedAnswers] = useState([]);
   const [profile, setProfile] = useState('direction');
+  const [showLeadCapture, setShowLeadCapture] = useState(false);
   const [showResult, setShowResult] = useState(false);
+
+  const [lead, setLead] = useState({
+    firstName: '',
+    email: '',
+    phone: '',
+    consent: false,
+  });
 
   const question = questions[currentQuestion];
   const progress = ((currentQuestion + 1) / questions.length) * 100;
@@ -185,11 +193,11 @@ function Quiz({ onClose }) {
     setSelectedAnswers(updatedAnswers);
 
     if (currentQuestion === questions.length - 1) {
-      setShowResult(true);
+      setShowLeadCapture(true);
       return;
     }
 
-    setCurrentQuestion(currentQuestion + 1);
+    setCurrentQuestion((previousQuestion) => previousQuestion + 1);
   }
 
   function goBack() {
@@ -198,33 +206,159 @@ function Quiz({ onClose }) {
       return;
     }
 
-    setSelectedAnswers(selectedAnswers.slice(0, -1));
-    setCurrentQuestion(currentQuestion - 1);
+    setSelectedAnswers((previousAnswers) =>
+      previousAnswers.slice(0, -1)
+    );
+
+    setCurrentQuestion((previousQuestion) => previousQuestion - 1);
+  }
+
+  function handleLeadChange(event) {
+    const { name, value, type, checked } = event.target;
+
+    setLead((previousLead) => ({
+      ...previousLead,
+      [name]: type === 'checkbox' ? checked : value,
+    }));
+  }
+
+  function submitLead(event) {
+    event.preventDefault();
+
+    if (!lead.firstName || !lead.email || !lead.consent) {
+      return;
+    }
+
+    console.log('Lead details:', lead);
+    console.log('Quiz answers:', selectedAnswers);
+    console.log('Result profile:', profile);
+
+    setShowLeadCapture(false);
+    setShowResult(true);
   }
 
   function restartQuiz() {
     setCurrentQuestion(0);
     setSelectedAnswers([]);
     setProfile('direction');
+    setShowLeadCapture(false);
     setShowResult(false);
+    setLead({
+      firstName: '',
+      email: '',
+      phone: '',
+      consent: false,
+    });
   }
 
   const scoredAnswers = selectedAnswers.slice(1);
+
   const averageScore =
     scoredAnswers.length > 0
-      ? scoredAnswers.reduce((total, answer) => total + answer.score, 0) /
-        scoredAnswers.length
+      ? scoredAnswers.reduce(
+          (total, answer) => total + answer.score,
+          0
+        ) / scoredAnswers.length
       : 0;
 
   const score = Math.round((averageScore / 4) * 100);
   const result = results[profile];
+
+  if (showLeadCapture) {
+    return (
+      <section className="quizScreen">
+        <div className="quizCard leadCaptureCard">
+          <div className="quizTop lightQuizTop">
+            <span>Your Starting Point is ready</span>
+
+            <button className="closeButton lightCloseButton" onClick={onClose}>
+              ×
+            </button>
+          </div>
+
+          <div className="progressTrack lightProgressTrack">
+            <div className="progressFill" style={{ width: '100%' }} />
+          </div>
+
+          <div className="leadCaptureContent">
+            <p className="leadEyebrow">Almost there</p>
+
+            <h2>Unlock your personalised result.</h2>
+
+            <p className="leadIntro">
+              Enter your details below to see your Starting Point score,
+              biggest opportunity and three recommended actions.
+            </p>
+
+            <form className="leadForm" onSubmit={submitLead}>
+              <label>
+                First name
+                <input
+                  type="text"
+                  name="firstName"
+                  value={lead.firstName}
+                  onChange={handleLeadChange}
+                  placeholder="Your first name"
+                  required
+                />
+              </label>
+
+              <label>
+                Email address
+                <input
+                  type="email"
+                  name="email"
+                  value={lead.email}
+                  onChange={handleLeadChange}
+                  placeholder="you@email.com"
+                  required
+                />
+              </label>
+
+              <label>
+                Phone number <span>Optional</span>
+                <input
+                  type="tel"
+                  name="phone"
+                  value={lead.phone}
+                  onChange={handleLeadChange}
+                  placeholder="Your phone number"
+                />
+              </label>
+
+              <label className="consentRow">
+                <input
+                  type="checkbox"
+                  name="consent"
+                  checked={lead.consent}
+                  onChange={handleLeadChange}
+                  required
+                />
+
+                <span>
+                  I agree to Built From Zero using my details to send my
+                  result and contact me about coaching.
+                </span>
+              </label>
+
+              <button className="unlockButton" type="submit">
+                Unlock my Starting Point report →
+              </button>
+            </form>
+          </div>
+        </div>
+      </section>
+    );
+  }
 
   if (showResult) {
     return (
       <section className="quizScreen">
         <div className="quizCard resultCard">
           <div className="quizTop">
-            <span>Your Built From Zero Starting Point</span>
+            <span>
+              {lead.firstName}, here is your Built From Zero Starting Point
+            </span>
 
             <button className="closeButton" onClick={onClose}>
               ×
@@ -237,14 +371,17 @@ function Quiz({ onClose }) {
 
           <div className="resultGrid">
             <div className="resultSummary">
-              <p className="eyebrow">Your result</p>
+              <p className="eyebrow">Your Starting Point</p>
 
               <h2 className="resultTitle">{result.title}</h2>
 
               <p>{result.summary}</p>
 
               <div className="scoreNumber">{score}</div>
-              <span className="scoreCaption">Starting Point score out of 100</span>
+
+              <span className="scoreCaption">
+                Starting Point score out of 100
+              </span>
             </div>
 
             <div className="resultDetails">
@@ -282,18 +419,18 @@ function Quiz({ onClose }) {
 
   return (
     <section className="quizScreen">
-      <div className="quizCard">
-        <div className="quizTop">
+      <div className="quizCard lightQuizCard">
+        <div className="quizTop lightQuizTop">
           <span>
             Question {currentQuestion + 1} of {questions.length}
           </span>
 
-          <button className="closeButton" onClick={onClose}>
+          <button className="closeButton lightCloseButton" onClick={onClose}>
             ×
           </button>
         </div>
 
-        <div className="progressTrack">
+        <div className="progressTrack lightProgressTrack">
           <div
             className="progressFill"
             style={{ width: `${progress}%` }}
@@ -301,16 +438,21 @@ function Quiz({ onClose }) {
         </div>
 
         <div className="quizContent">
-          <p className="eyebrow">{question.category}</p>
+          <p className="leadEyebrow">{question.category}</p>
 
-          <h2 className="quizQuestion">{question.question}</h2>
+          <h2 className="quizQuestion lightQuizQuestion">
+            {question.question}
+          </h2>
 
-          <p className="quizHelp">{question.help}</p>
+          <p className="quizHelp lightQuizHelp">
+            {question.help}
+          </p>
 
           <div className="answerList">
             {question.answers.map((answer) => (
               <button
-                className="answerButton"
+                type="button"
+                className="answerButton lightAnswerButton"
                 key={answer.text}
                 onClick={() => selectAnswer(answer)}
               >
@@ -320,7 +462,7 @@ function Quiz({ onClose }) {
             ))}
           </div>
 
-          <button className="backButton" onClick={goBack}>
+          <button className="backButton lightBackButton" onClick={goBack}>
             ← Back
           </button>
         </div>
