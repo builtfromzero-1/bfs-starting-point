@@ -44,16 +44,6 @@ function App() {
     setStartingAnswer(null);
   }
 
-  if (showQuiz) {
-    return (
-      <Quiz
-      embedded={true}
-        onClose={closeAssessment}
-        startingAnswer={startingAnswer}
-      />
-    );
-  }
-
   return (
     <main className="page">
 
@@ -286,6 +276,49 @@ function App() {
           </div>
         </div>
       </section>
+
+<section className="contentSection transformationsSection">
+  <div className="sectionHeader">
+    <p className="eyebrow">500+ PEOPLE COACHED</p>
+
+    <h2>
+      Every transformation
+      <span> starts somewhere.</span>
+    </h2>
+
+    <p>
+      We've had the privilege of coaching over 500 people, each starting from a different place. Here are a few stories.
+    </p>
+  </div>
+
+  <div className="transformationsGrid">
+    <div className="transformationCard">
+  <img src="/images/carousel/Elliot.png" alt="Elliot Transformation" />
+  <h4>Elliot</h4>
+  <p>8 weeks</p>
+</div>
+
+<div className="transformationCard">
+  <img src="/images/carousel/Kieran.png" alt="Kieran Transformation" />
+  <h4>Kieran</h4>
+  <p>8 weeks</p>
+</div>
+
+<div className="transformationCard">
+  <img src="/images/carousel/Regan.png" alt="Regan Transformation" />
+  <h4>Regan</h4>
+  <p>8 weeks</p>
+</div>
+
+<div className="transformationCard">
+  <img src="/images/carousel/Shay.png" alt="Shay Transformation" />
+  <h4>Shay</h4>
+  <p>12 weeks</p>
+</div>
+
+</div>
+
+</section>
 
       <section className="contentSection">
         <div className="sectionHeader">
