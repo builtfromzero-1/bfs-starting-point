@@ -2354,7 +2354,7 @@ text-align: center;
 }
 
 .transformationCard {
-  flex: 0 0 500px;
+  flex: 0 0 600px;
   scroll-snap-align: start;
 }
 
@@ -2437,5 +2437,58 @@ text-align: center;
 .transformationsHeader p {
   width: 100%;
   max-width: 760px;
+  text-align: center !important;
+}
+/* Force results heading into the true centre */
+
+.transformationsHeader {
+  width: 100% !important;
+  max-width: none !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  text-align: center !important;
+}
+
+.transformationsHeader h2 {
+  width: 100% !important;
+  max-width: 760px !important;
+  margin: 12px auto 0 !important;
+  text-align: center !important;
+}
+
+.transformationsHeader > p {
+  width: 100% !important;
+  max-width: 720px !important;
+  margin: 18px auto 0 !important;
+  text-align: center !important;
+}
+
+.transformationsHeader .eyebrow {
+  width: 100% !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  text-align: center !important;
+}
+/* Final results heading alignment */
+
+.transformationsHeader h2 {
+  width: 100% !important;
+  max-width: 100% !important;
+  margin: 12px auto 0 !important;
+  text-align: center !important;
+}
+
+.transformationsHeader h2 span {
+  display: block !important;
+  width: 100% !important;
+  text-align: center !important;
+}
+
+.transformationsHeader > p,
+.transformationsHeader .eyebrow {
+  width: 100% !important;
   text-align: center !important;
 }
