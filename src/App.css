@@ -2383,3 +2383,23 @@ h1 span {
   font-size: 0.95rem;
   text-align: center;
 }
+/* ===== Centre transformation text ===== */
+
+.transformationCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center !important;
+}
+
+.transformationCard h4 {
+  width: 100%;
+  margin: 16px 0 4px;
+  text-align: center !important;
+}
+
+.transformationCard p {
+  width: 100%;
+  margin: 0;
+  text-align: center !important;
+}
