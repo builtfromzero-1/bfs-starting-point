@@ -2492,3 +2492,30 @@ text-align: center;
   width: 100% !important;
   text-align: center !important;
 }
+/* Force transformation heading group to centre */
+
+.contentSection.transformationsSection {
+  width: min(1180px, calc(100% - 32px)) !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+.contentSection.transformationsSection .transformationsHeader {
+  width: 100% !important;
+  max-width: none !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  text-align: center !important;
+}
+
+.contentSection.transformationsSection .transformationsHeader h2,
+.contentSection.transformationsSection .transformationsHeader h2 span,
+.contentSection.transformationsSection .transformationsHeader p,
+.contentSection.transformationsSection .transformationsHeader .eyebrow {
+  display: block !important;
+  width: 100% !important;
+  max-width: none !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  text-align: center !important;
+}
