@@ -525,7 +525,8 @@ h1 span {
 
 .sectionHeader {
   max-width: 820px;
-  margin-bottom: 34px;
+  margin: 0 auto 34px;
+text-align: center;
 }
 
 .sectionHeader h2,
@@ -2353,7 +2354,7 @@ h1 span {
 }
 
 .transformationCard {
-  flex: 0 0 400px;
+  flex: 0 0 500px;
   scroll-snap-align: start;
 }
 
