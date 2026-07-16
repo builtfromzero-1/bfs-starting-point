@@ -2371,7 +2371,7 @@ text-align: center;
 }
 
 .transformationCard h4 {
-  margin: 14px 0 4px;
+  margin: 4px 0 2px;
   color: #fff;
   font-size: 1.2rem;
   font-weight: 600;
@@ -2395,7 +2395,7 @@ text-align: center;
 
 .transformationCard h4 {
   width: 100%;
-  margin: 16px 0 4px;
+  margin: 4px 0 2px;
   text-align: center !important;
 }
 
@@ -2403,4 +2403,28 @@ text-align: center;
   width: 100%;
   margin: 0;
   text-align: center !important;
+}
+/* Tighten results section spacing */
+
+.transformationsSection {
+  margin: 5rem 0 !important;
+}
+
+.transformationsHeader {
+  max-width: 100% !important;
+  margin: 0 auto 14px !important;
+  text-align: center !important;
+}
+
+.transformationsHeader h2,
+.transformationsHeader p,
+.transformationsHeader .eyebrow {
+  text-align: center !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+.transformationsGrid {
+  padding-top: 0 !important;
+  margin-top: 0 !important;
 }
