@@ -278,7 +278,7 @@ function App() {
       </section>
 
 <section className="contentSection transformationsSection">
-  <div className="sectionHeader">
+  <div className="sectionHeader transformationsHeader">
     <p className="eyebrow">500+ PEOPLE COACHED</p>
 
     <h2>

@@ -2428,3 +2428,14 @@ text-align: center;
   padding-top: 0 !important;
   margin-top: 0 !important;
 }
+.transformationsHeader h2 {
+  width: 100%;
+  max-width: 100%;
+  text-align: center !important;
+}
+
+.transformationsHeader p {
+  width: 100%;
+  max-width: 760px;
+  text-align: center !important;
+}
