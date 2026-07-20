@@ -4,29 +4,29 @@ import Quiz from './components/Quiz';
 
 const firstQuestionAnswers = [
   {
-    text: 'I am putting effort in but still look the same',
-    profile: 'plateau',
-    score: 2,
+    text: "I want to feel confident in my own skin",
+    profile: null,
+    score:0,
   },
   {
-    text: 'I keep starting again every Monday',
-    profile: 'consistency',
-    score: 1,
+    text: "I want more energy and to feel healthier",
+    profile: null,
+    score:0,
   },
   {
-    text: 'I know what to do but cannot stay consistent',
-    profile: 'structure',
-    score: 1,
+    text: "I want to become stronger, fitter and more capable",
+    profile: null,
+    score:0,
   },
   {
-    text: 'I do not know where to start',
-    profile: 'direction',
-    score: 1,
+    text: "I want to build discipline and consistency",
+    profile: null,
+    score:0,
   },
   {
-    text: 'I am always too busy',
-    profile: 'time',
-    score: 1,
+    text: "I want to become the best version of myself",
+    profile: null,
+    score:0,
   },
 ];
 
@@ -43,7 +43,15 @@ function App() {
     setShowQuiz(false);
     setStartingAnswer(null);
   }
-
+if (showQuiz) {
+  return (
+    <Quiz
+      embedded={true}
+      startingAnswer={startingAnswer}
+      onClose={closeAssessment}
+    />
+  );
+}
   return (
     <main className="page">
 
@@ -77,7 +85,7 @@ function App() {
               </span>
 
               <span className="homeQuestionCount">
-                Question 1 of 7
+                Question 1 of 8
               </span>
             </div>
 
@@ -89,20 +97,20 @@ function App() {
               <span>5</span>
               <span>6</span>
               <span>7</span>
+              <span>8</span>
             </div>
 
-            <p className="homeQuestionLabel">
-              Step 1 — Your current frustration
-            </p>
+          <p className="homeQuestionLabel">
+  Step 1 — Your personal mission
+</p>
 
-            <h2>
-              What feels most frustrating about your progress right now?
-            </h2>
+<h2>
+  What's the biggest reason you want to change right now?
+</h2>
 
-            <p className="homeQuestionHelp">
-              Choose the answer that feels closest. Your next question
-              will load automatically.
-            </p>
+<p className="homeQuestionHelp">
+  Choose the answer that resonates most. Your next question will load automatically.
+</p>
 
             <div className="homeAnswerList">
               {firstQuestionAnswers.map((answer, index) => (

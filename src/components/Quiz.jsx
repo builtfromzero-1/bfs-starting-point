@@ -2,6 +2,28 @@ import { useState } from 'react';
 
 const questions = [
   {
+  step: "Step 1 — Your personal mission",
+  question: "What's the biggest reason you want to change right now?",
+  helper: "Choose the answer that resonates most.",
+  answers: [
+    {
+      text: "I want to feel confident in my own skin",
+    },
+    {
+      text: "I want more energy and to feel healthier",
+    },
+    {
+      text: "I want to become stronger, fitter and more capable",
+    },
+    {
+      text: "I want to build discipline and consistency",
+    },
+    {
+      text: "I want to become the best version of myself",
+    },
+  ],
+},
+{
     category: 'Your current frustration',
     question: 'What feels most frustrating about your progress right now?',
     help: 'Choose the answer that feels closest, even if more than one applies.',
@@ -163,9 +185,14 @@ const results = {
   },
 };
 
-function Quiz({ onClose, embedded = false }) {
-  const [currentQuestion, setCurrentQuestion] = useState(0);
-  const [selectedAnswers, setSelectedAnswers] = useState([]);
+function Quiz({ onClose, embedded = false, startingAnswer = null }) {
+  const [currentQuestion, setCurrentQuestion] = useState(
+    startingAnswer ? 1 : 0
+  );
+
+  const [selectedAnswers, setSelectedAnswers] = useState(
+    startingAnswer ? [startingAnswer] : []
+  );
   const [profile, setProfile] = useState('direction');
   const [showLeadCapture, setShowLeadCapture] = useState(false);
   const [showResult, setShowResult] = useState(false);
