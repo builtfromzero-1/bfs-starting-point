@@ -314,7 +314,7 @@ function Quiz({ onClose, embedded = false, startingAnswer = null }) {
               onClick={onClose}
               aria-label="Close assessment"
             >
-              ×
+              X
             </button>
           </div>
 
@@ -493,7 +493,7 @@ function Quiz({ onClose, embedded = false, startingAnswer = null }) {
           <h1>Find Your Starting Point</h1>
 
           <p>
-            Answer seven short questions. Each answer automatically moves
+            Answer eight short questions. Each answer automatically moves
             you to the next step.
           </p>
         </div>

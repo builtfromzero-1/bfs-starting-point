@@ -73,7 +73,7 @@ if (showQuiz) {
 
           <p className="heroText">
             Most people are not stuck because they are lazy.
-            They are stuck because they are guessing. Answer seven short
+            They are stuck because they are guessing. Answer eight short
             questions to identify the biggest barrier between you and
             consistent progress.
           </p>

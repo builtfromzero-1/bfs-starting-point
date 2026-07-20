@@ -1115,17 +1115,20 @@ text-align: center;
   width: min(860px, 100%);
   min-height: auto;
   padding: 30px;
-  background:
-    radial-gradient(
-      circle at top right,
-      rgba(134, 169, 112, 0.12),
-      transparent 24rem
-    ),
-    linear-gradient(160deg, #172019, #0d130f);
-  color: #ffffff;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-}
 
+  background: #ffffff;
+  color: #111111;
+
+  border: 1px solid #e5e7eb;
+  border-radius: 28px;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.18);
+}
+.guidedQuizCard h2,
+.guidedQuizCard p,
+.guidedQuestion,
+.guidedHelp {
+  color: #111111;
+}
 .quizHeaderRow {
   display: flex;
   align-items: center;
@@ -1154,7 +1157,7 @@ text-align: center;
   border: 1px solid rgba(255, 255, 255, 0.13);
   border-radius: 50%;
   background: rgba(255, 255, 255, 0.04);
-  color: #ffffff;
+  color: #111111;
   font-size: 1.2rem;
   cursor: pointer;
 }
@@ -2513,4 +2516,70 @@ text-align: center;
 .transformationCard::after {
   display: none !important;
   content: none !important;
+}
+/* Questions 2–8: white card with visible text and dark answer buttons */
+
+.guidedQuizCard {
+  background: #ffffff !important;
+  color: #111111 !important;
+}
+
+.guidedStepLabel,
+.guidedQuestion,
+.guidedHelp,
+.quizHeaderRow,
+.quizHeaderRow p,
+.quizBackTop {
+  color: #111111 !important;
+}
+
+.guidedAnswerButton {
+  width: 100%;
+  background: #17231c !important;
+  color: #ffffff !important;
+  border: 1px solid rgba(92, 118, 80, 0.35) !important;
+}
+
+.guidedAnswerButton span {
+  color: #ffffff !important;
+}
+
+.guidedAnswerButton .answerLetter {
+  background: #f4f6f1 !important;
+  color: #6f8f55 !important;
+}
+
+.guidedAnswerButton .answerArrow {
+  color: #8fb866 !important;
+}
+
+.guidedQuizCard .quizPrivacy,
+.guidedQuizCard .guidedPrivacy {
+  color: #667066 !important;
+}
+/* Make all quiz text visible on the white card */
+.guidedQuizCard * {
+  color: #111111 !important;
+  opacity: 1 !important;
+}
+
+/* Keep answer buttons dark with white writing */
+.guidedAnswerButton,
+.guidedAnswerButton span {
+  color: #ffffff !important;
+}
+
+.guidedAnswerButton .answerLetter {
+  color: #6f8f55 !important;
+}
+
+.guidedAnswerButton .answerArrow {
+  color: #8fb866 !important;
+}
+.embeddedQuiz {
+  min-height: 100vh;
+  padding: 24px;
+  display: grid;
+  place-items: center;
+  background: #ffffff !important;
 }
