@@ -207,9 +207,9 @@ function Quiz({ onClose, embedded = false, startingAnswer = null }) {
   const question = questions[currentQuestion];
 
   function selectAnswer(answer) {
-    if (currentQuestion === 0 && answer.profile) {
-      setProfile(answer.profile);
-    }
+    if (answer.profile) {
+  setProfile(answer.profile);
+}
 
     const updatedAnswers = [
       ...selectedAnswers,
@@ -314,7 +314,7 @@ function Quiz({ onClose, embedded = false, startingAnswer = null }) {
               onClick={onClose}
               aria-label="Close assessment"
             >
-              X
+              x
             </button>
           </div>
 

@@ -63,7 +63,7 @@ if (showQuiz) {
   className="heroLogo"
 />
           <p className="eyebrow">
-            The Built From Zero Quiz 
+            The Built From Zero Analysis 
           </p>
 
           <h1>
