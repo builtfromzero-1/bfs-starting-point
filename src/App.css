@@ -2744,7 +2744,7 @@ text-align: center;
     display: flex;
     flex-direction: column;
     width: min(100% - 32px, 680px);
-    padding: 48px 0;
+    padding: 28px 0;
     gap: 32px;
   }
 
@@ -2762,5 +2762,20 @@ text-align: center;
 @media (max-width: 768px) {
   .heroIntro .eyebrow {
     margin-bottom: 24px !important;
+  }
+}
+@media (max-width: 768px) {
+  .hero {
+    min-height: auto;
+  }
+
+  .heroIntro {
+    display: block;
+    min-height: 0;
+  }
+
+  .heroLogo {
+    width: 220px;
+    margin: 0 auto 20px;
   }
 }
