@@ -2613,7 +2613,8 @@ text-align: center;
   }
 
   .transformationCard img {
-    width: 100%;
+    width: 112%;
     max-width: none;
+    margin-left: -6%
   }
 }
