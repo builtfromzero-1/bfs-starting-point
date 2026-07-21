@@ -2331,7 +2331,7 @@ text-align: center;
 }
 
 .programLibraryCta .eyebrow{
-  margin-bottom:14px;
+  margin-bottom:24px;
 }
 
 .programLibraryCta h2{
@@ -2730,8 +2730,8 @@ text-align: center;
 }
 @media (min-width: 769px) {
   .hero > .painCard {
-    align-self: end;
-    margin-bottom: 40px;
+    align-self: start;
+    margin-top: 0;
   }
 }
 @media (min-width: 769px) {
