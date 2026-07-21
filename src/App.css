@@ -2759,3 +2759,8 @@ text-align: center;
     width: 100%;
   }
 }
+@media (max-width: 768px) {
+  .heroIntro .eyebrow {
+    margin-bottom: 24px !important;
+  }
+}
