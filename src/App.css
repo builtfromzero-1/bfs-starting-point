@@ -102,10 +102,16 @@ button {
   align-items: center;
 }
 
-.heroContent {
-    max-width: 720px;
+@media (min-width: 769px) {
+  .heroContent {
     margin: 0 auto;
     text-align: center;
+  }
+
+  .heroContent p {
+    max-width: 650px;
+    margin: 24px auto 0;
+  }
 }
 
 .eyebrow,
