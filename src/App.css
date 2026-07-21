@@ -96,10 +96,16 @@ button {
   min-height: calc(100vh - 72px);
   margin: 0 auto;
   padding: 64px 0;
+
   display: grid;
   grid-template-columns: 1.05fr 0.95fr;
-  gap: 60px;
-  align-items: center;
+  grid-template-areas:
+    "intro intro"
+    "quiz pain";
+
+  gap: 48px 60px;
+  align-items: start;
+}
 
   .hero {
   justify-items: center;
@@ -108,6 +114,46 @@ button {
   width: 100%;
   max-width: 650px;
 }
+
+.heroIntro {
+  grid-area: intro;
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.heroIntro h1 {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.heroIntro .heroText {
+  max-width: 680px;
+  margin: 24px auto 0;
+  text-align: center;
+}
+
+.heroIntro .heroLogo {
+  display: block;
+  margin: 0 auto 24px;
+}
+
+.heroIntro .eyebrow {
+  text-align: center;
+}
+
+.heroQuiz {
+  grid-area: quiz;
+  width: 100%;
+}
+
+.hero > .painCard {
+  grid-area: pain;
+  width: 100%;
+  align-self: start;
 }
 
 @media (min-width: 769px) {
@@ -2333,7 +2379,7 @@ text-align: center;
   text-decoration: none !important;
 }
 .heroLogo {
-  width: 160px;
+  width: 400px;
   height: auto;
   display: block;
   margin: 0 auto 24px;
@@ -2691,5 +2737,25 @@ text-align: center;
 @media (min-width: 769px) {
   .hero > .heroContent {
     transform: translateX(55px);
+  }
+}
+@media (max-width: 768px) {
+  .hero {
+    display: flex;
+    flex-direction: column;
+    width: min(100% - 32px, 680px);
+    padding: 48px 0;
+    gap: 32px;
+  }
+
+  .heroIntro {
+    width: 100%;
+    max-width: none;
+    text-align: center;
+  }
+
+  .heroQuiz,
+  .hero > .painCard {
+    width: 100%;
   }
 }

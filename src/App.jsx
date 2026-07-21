@@ -56,46 +56,36 @@ if (showQuiz) {
     <main className="page">
 
       <section className="hero">
-        <div className="heroContent">
-          <img
-  src="/images/brand/Logo.png"
-  alt="Built From Zero"
-  className="heroLogo"
-/>
-          <p className="eyebrow" style={{ textAlign: "center" }}>
-            The Built From Zero Assessment 
-          </p>
+        <div className="heroIntro">
+  <img
+    src="/images/brand/Logo.png"
+    alt="Built From Zero"
+    className="heroLogo"
+  />
 
-          <h1
-  style={{
-    textAlign: "center",
-    width: "100%",
-    margin: "0 auto"
-  }}
->
-            We’re here to help you find
-            <span> what’s holding you back.</span>
-          </h1>
+  <p className="eyebrow">
+    The Built From Zero Assessment
+  </p>
 
-          <p
-  className="heroText"
-  style={{
-    textAlign: "center",
-    marginLeft: "auto",
-    marginRight: "auto"
-  }}
->
-            Most people are not stuck because they are lazy.
-            They are stuck because they are guessing. Answer eight short
-            questions to identify the biggest barrier between you and
-            consistent progress.
-          </p>
+  <h1>
+    We’re here to help you find
+    <span> what’s holding you back.</span>
+  </h1>
 
-          <div className="homeQuestion">
-            <div className="homeAssessmentTop">
-              <span className="assessmentPill">
-                2 minute assessment
-              </span>
+  <p className="heroText">
+    Most people are not stuck because they are lazy. They are stuck
+    because they are guessing. Answer eight short questions to identify
+    the biggest barrier between you and consistent progress.
+  </p>
+</div>
+
+<div className="heroQuiz">
+  <div className="homeQuestion">
+    <div className="homeAssessmentTop">
+      <span className="assessmentPill">
+        2 minute assessment
+      </span>
+
 
               <span className="homeQuestionCount">
                 Question 1 of 8
