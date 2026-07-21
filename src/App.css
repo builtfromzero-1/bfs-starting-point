@@ -2358,7 +2358,7 @@ text-align: center;
 }
 
 .transformationCard img {
-  width: min(500px, 100%);
+  width: min(600px, 100%);
   max-width: 100%;
   margin: 0 auto;
   display: block;
