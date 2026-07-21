@@ -2632,3 +2632,24 @@ text-align: center;
     margin-left: -6%
   }
 }
+@media (min-width: 769px) {
+  .hero .heroContent {
+    width: 100%;
+    max-width: 720px;
+    margin: 0 auto !important;
+    justify-self: center;
+    text-align: center !important;
+  }
+
+  .hero .heroContent h1,
+  .hero .heroContent h2,
+  .hero .heroContent p,
+  .hero .heroContent .eyebrow {
+    text-align: center !important;
+  }
+
+  .hero .heroContent p {
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+}
