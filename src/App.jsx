@@ -56,7 +56,14 @@ if (showQuiz) {
     <main className="page">
 
       <section className="hero">
-        <div className="heroContent">
+        <div
+  className="heroContent"
+  style={{
+    width: "100%",
+    justifySelf: "center",
+    textAlign: "center",
+  }}
+>
           <img
   src="/images/brand/Logo.png"
   alt="Built From Zero"
