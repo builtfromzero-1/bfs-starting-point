@@ -56,29 +56,35 @@ if (showQuiz) {
     <main className="page">
 
       <section className="hero">
-        <div
-  className="heroContent"
-  style={{
-    width: "100%",
-    justifySelf: "center",
-    textAlign: "center",
-  }}
->
+        <div className="heroContent">
           <img
   src="/images/brand/Logo.png"
   alt="Built From Zero"
   className="heroLogo"
 />
-          <p className="eyebrow">
+          <p className="eyebrow" style={{ textAlign: "center" }}>
             The Built From Zero Assessment 
           </p>
 
-          <h1>
+          <h1
+  style={{
+    textAlign: "center",
+    width: "100%",
+    margin: "0 auto"
+  }}
+>
             We’re here to help you find
             <span> what’s holding you back.</span>
           </h1>
 
-          <p className="heroText">
+          <p
+  className="heroText"
+  style={{
+    textAlign: "center",
+    marginLeft: "auto",
+    marginRight: "auto"
+  }}
+>
             Most people are not stuck because they are lazy.
             They are stuck because they are guessing. Answer eight short
             questions to identify the biggest barrier between you and
