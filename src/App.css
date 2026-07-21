@@ -2653,3 +2653,32 @@ text-align: center;
     margin-right: auto !important;
   }
 }
+@media (min-width: 769px) {
+  section.hero > .heroContent {
+    width: 100% !important;
+    max-width: 720px !important;
+    margin: 0 auto !important;
+    justify-self: center !important;
+    text-align: center !important;
+  }
+
+  section.hero > .heroContent h1 {
+    display: block !important;
+    width: 100% !important;
+    max-width: 720px !important;
+    margin: 0 auto !important;
+    text-align: center !important;
+  }
+
+  section.hero > .heroContent h1 span {
+    display: inline !important;
+  }
+
+  section.hero > .heroContent .eyebrow,
+  section.hero > .heroContent .heroText {
+    width: 100% !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    text-align: center !important;
+  }
+}
