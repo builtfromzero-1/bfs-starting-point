@@ -2603,11 +2603,17 @@ text-align: center;
   background: #ffffff !important;
 }
 @media (max-width: 600px) {
+  .transformationsGrid {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
   .transformationCard {
-    flex: 0 0 calc(100vw - 32px);
+    flex: 0 0 calc(100vw - 16px);
   }
 
   .transformationCard img {
     width: 100%;
+    max-width: none;
   }
 }
