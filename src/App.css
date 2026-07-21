@@ -2682,3 +2682,8 @@ text-align: center;
     text-align: center !important;
   }
 }
+@media (min-width: 769px) {
+  .painCard {
+    transform: translateY(70px);
+  }
+}
