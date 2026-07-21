@@ -93,21 +93,16 @@ button {
 
 .hero {
   width: min(1180px, calc(100% - 32px));
-  min-height: calc(100vh - 72px);
   margin: 0 auto;
-  padding: 64px 0;
   display: grid;
-  grid-template-columns: 1.05fr 0.95fr;
-  gap: 60px;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
   align-items: center;
+}
 
-  .hero {
-  justify-items: center;
-}
 .heroContent {
-  width: 100%;
-  max-width: 650px;
-}
+  max-width: 700px;
+  margin: 0 auto;
 }
 
 @media (min-width: 769px) {
