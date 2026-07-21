@@ -2688,3 +2688,8 @@ text-align: center;
     margin-bottom: 40px;
   }
 }
+@media (min-width: 769px) {
+  .hero > .heroContent {
+    transform: translateX(55px);
+  }
+}
