@@ -2683,7 +2683,8 @@ text-align: center;
   }
 }
 @media (min-width: 769px) {
-  .painCard {
-    transform: translateY(70px);
+  .hero > .painCard {
+    align-self: end;
+    margin-bottom: 40px;
   }
 }
