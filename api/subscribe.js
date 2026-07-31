@@ -40,6 +40,16 @@ console.log("First name:", firstName);
 
     const data = await response.json();
 
+    if (
+  response.status === 400 &&
+  data.title === "Member Exists"
+) {
+  return res.status(200).json({
+    success: true,
+    alreadySubscribed: true,
+  });
+}
+
 console.log("Mailchimp response:", data);
 
 return res.status(response.status).json(data);
