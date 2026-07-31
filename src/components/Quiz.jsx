@@ -204,6 +204,9 @@ function Quiz({ onClose, embedded = false, startingAnswer = null }) {
     consent: false,
   });
 
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState('');
+
   const question = questions[currentQuestion];
 
   function selectAnswer(answer) {
@@ -252,19 +255,55 @@ function Quiz({ onClose, embedded = false, startingAnswer = null }) {
     }));
   }
 
-  function submitLead(event) {
+  async function submitLead(event) {
     event.preventDefault();
 
-    if (!lead.firstName || !lead.email || !lead.consent) {
+    if (!lead.firstName || !lead.email || !lead.consent || isSubmitting) {
       return;
     }
 
-    console.log('Lead details:', lead);
-    console.log('Quiz answers:', selectedAnswers);
-    console.log('Result profile:', profile);
+    setIsSubmitting(true);
+    setSubmitError('');
 
-    setShowLeadCapture(false);
-    setShowResult(true);
+    try {
+      const response = await fetch('/api/subscribe', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          firstName: lead.firstName.trim(),
+          email: lead.email.trim(),
+          phone: lead.phone.trim(),
+          result: result.title,
+          summary: result.summary,
+          score,
+          opportunity: result.opportunity,
+          step1: result.actions[0],
+          step2: result.actions[1],
+          step3: result.actions[2],
+        }),
+      });
+
+      const data = await response.json().catch(() => ({}));
+
+      if (!response.ok) {
+        throw new Error(
+          data.error || 'We could not send your report. Please try again.'
+        );
+      }
+
+      setShowLeadCapture(false);
+      setShowResult(true);
+    } catch (error) {
+      setSubmitError(
+        error instanceof Error
+          ? error.message
+          : 'We could not send your report. Please try again.'
+      );
+    } finally {
+      setIsSubmitting(false);
+    }
   }
 
   function restartQuiz() {
@@ -280,6 +319,9 @@ function Quiz({ onClose, embedded = false, startingAnswer = null }) {
       phone: '',
       consent: false,
     });
+
+    setSubmitError('');
+    setIsSubmitting(false);
   }
 
   const scoredAnswers = selectedAnswers.slice(1);
@@ -383,8 +425,25 @@ function Quiz({ onClose, embedded = false, startingAnswer = null }) {
                 </span>
               </label>
 
-              <button className="unlockButton" type="submit">
-                Unlock my report →
+              {submitError && (
+                <p
+                  role="alert"
+                  style={{
+                    margin: '0 0 14px',
+                    color: '#a52a2a',
+                    fontWeight: 700,
+                  }}
+                >
+                  {submitError}
+                </p>
+              )}
+
+              <button
+                className="unlockButton"
+                type="submit"
+                disabled={isSubmitting}
+              >
+                {isSubmitting ? 'Sending your report…' : 'Unlock my report →'}
               </button>
             </form>
           </div>
