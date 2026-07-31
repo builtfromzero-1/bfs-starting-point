@@ -9,6 +9,10 @@ export default async function handler(req, res) {
   try {
     const { email, firstName = "" } = req.body;
 
+    console.log("Request body:", req.body);
+console.log("Email:", email);
+console.log("First name:", firstName);
+
     const apiKey = process.env.MAILCHIMP_API_KEY;
     const audienceId = process.env.MAILCHIMP_AUDIENCE_ID;
     const serverPrefix = process.env.MAILCHIMP_SERVER_PREFIX;
